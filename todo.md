@@ -1,3 +1,6 @@
+make the javascript for sending and displaying messages.
+
+
 having messages appear immediately.
 
 

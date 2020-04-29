@@ -23,8 +23,8 @@ start_http() ->
         cowboy_router:compile(
           [{'_', [
 		  %{"/:file", file_handler, []}%,
-		  {"/[...]", file_handler, []}%,
-		  %{"/", http_handler, []}
+		  {"/", api_handler, []},
+		  {"/[...]", file_handler, []}
 		 ]}]),
     %{ok, Port} = application:get_env(amoveo_mining_pool, port),
     {ok, _} = cowboy:start_clear(http,

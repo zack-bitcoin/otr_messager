@@ -24,21 +24,27 @@ doit({send, Msg, To}) ->
     65 = size(To),
     true = is_binary(To),
     true = is_binary(Msg),
-    inbox:send(Msg, To);
+    true = size(Msg) < 5000,
+    inbox:send(Msg, To),
+    ok;
 doit({read, Nonce, To, Delay0}) ->
+%. gets all the messages for a particular user with a nonce higher than Nonce. Delay is how long to maintain this http request relationship, so if a message appears during this time period it can get immediately sent.
     true = is_integer(Nonce),
     true = is_integer(Delay0),
     true = Delay0 > -1,
     65 = size(To),
     true = is_binary(To),
-%. gets all the messages for a particular user with a nonce higher than Nonce. Delay is how long to maintain this http request relationship, so if a message appears during this time period it can get immediately sent.
     Delay = min(Delay0, 60),%maximum of a 1 minute relationship.
     Return = read_thread(Nonce, To, Delay, now2()),
+    io:fwrite("read"),
+    io:fwrite(packer:pack(Return)),
+    io:fwrite("\n"),
     {ok, Return};
 
 
 doit(X) ->
     io:fwrite("I can't handle this \n"),
+    io:fwrite(X), %unlock2
     io:fwrite(packer:pack(X)), %unlock2
     {error}.
 

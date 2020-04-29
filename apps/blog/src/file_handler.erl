@@ -12,57 +12,13 @@ handle(Req, State) ->
     PrivDir0 = "../../../../js",
     PrivDir = list_to_binary(PrivDir0),
     F = case F0 of
-	       <<"/virus.js">> -> F0;
-	       <<"/virus.html">> -> F0;
-	       <<"/codecBytes.js">> -> F0;
-	       <<"/puzzle_league.js">> -> F0;
-	       <<"/puzzle_league/puzzle_league2.js">> -> F0;
-	       <<"/puzzle_league/instructions.html">> -> F0;
-	       <<"/puzzle_league/main.html">> -> F0;
-
-	       <<"/puzzle_league/black.png">> -> F0;
-	       <<"/puzzle_league/blue.png">> -> F0;
-	       <<"/puzzle_league/cursor.png">> -> F0;
-	       <<"/puzzle_league/green.png">> -> F0;
-	       <<"/puzzle_league/yellow.png">> -> F0;
-	       <<"/puzzle_league/red.png">> -> F0;
-
-	       <<"/crypto.js">> -> F0;
-	       <<"/cube.html">> -> F0;
-	       <<"/cube.js">> -> F0;
-	       <<"/room.html">> -> F0;
-	       <<"/room.js">> -> F0;
-	       <<"/plant.html">> -> F0;
-	       <<"/plant.js">> -> F0;
-	       <<"/chordal.html">> -> F0;
-	       <<"/chordal.js">> -> F0;
-	       <<"/orbits.html">> -> F0;
-	       <<"/orbits.js">> -> F0;
-	       <<"/vision.html">> -> F0;
-	       <<"/vision.js">> -> F0;
-	       <<"/pendulum.html">> -> F0;
-	       <<"/pendulum.js">> -> F0;
-	       <<"/spider.png">> -> F0;
-	       <<"/format.js">> -> F0;
 	       <<"/main.html">> -> F0;
-	       <<"/password.html">> -> F0;
-	       <<"/pw_generator.js">> -> F0;
+	       <<"/messaging.js">> -> F0;
+	       <<"/codecBytes.js">> -> F0;
 	       <<"/favicon.ico">> -> F0;
-	       <<"/sjcl.js">> -> F0;
-	       <<"/spiral.html">> -> F0;
-	       <<"/spiral.js">> -> F0;
-	       <<"/signing.js">> -> F0;
-	       <<"/spots3.png">> -> F0;
-	       <<"/spots2.png">> -> F0;
-	       <<"/spots.png">> -> F0;
-	       <<"/spots.png">> -> F0;
-	       <<"/board.html">> -> F0;
-	       <<"/board.js">> -> F0;
-	       <<"/black_go.png">> -> F0;
-	       <<"/white_go.png">> -> F0;
-	       <<"/star_go.png">> -> F0;
-	       <<"/empty_go.png">> -> F0;
-	       <<"/mark_go.png">> -> F0;
+	       <<"/rpc.js">> -> F0;
+	       <<"/format.js">> -> F0;
+	       <<"/server.js">> -> F0;
                X -> 
                 io:fwrite("ext file handler block access to: "),
                 io:fwrite(X),
