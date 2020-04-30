@@ -34,7 +34,8 @@ doit({read, Nonce, To, Delay0}) ->
     true = Delay0 > -1,
     65 = size(To),
     true = is_binary(To),
-    Delay = min(Delay0, 60),%maximum of a 1 minute relationship.
+    Delay1 = max(Delay0, 2),
+    Delay = min(Delay1, 60),%maximum of a 1 minute relationship.
     Return = read_thread(Nonce, To, Delay, now2()),
     io:fwrite("read"),
     io:fwrite(packer:pack(Return)),
@@ -52,7 +53,6 @@ now2() ->
     erlang:timestamp().
 read_thread(Nonce, To, Delay, Then) ->
     Diff = timer:now_diff(now2(), Then),
-    %io:fwrite(Diff),
     R = inbox:read(To, Nonce),
     L = length(R),
     if

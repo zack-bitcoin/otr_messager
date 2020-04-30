@@ -1,7 +1,9 @@
 Deniable group Messager
 =======
 
-The goal of this project is to have OTR style encryption for group chat, even if there are many people in the group.
+OTR style encryption for group chat.
+
+A work in progress. Not yet usable.
 
 built for https://github.com/zack-bitcoin/amoveo
 

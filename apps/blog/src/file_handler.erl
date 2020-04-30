@@ -19,6 +19,16 @@ handle(Req, State) ->
 	       <<"/rpc.js">> -> F0;
 	       <<"/format.js">> -> F0;
 	       <<"/server.js">> -> F0;
+	       <<"/sjcl.js">> -> F0;
+	       <<"/elliptic.min.js">> -> F0;
+	       <<"/files.js">> -> F0;
+	       <<"/codecBytes.js">> -> F0;
+	       <<"/crypto.js">> -> F0;
+	       <<"/encryption_library.js">> -> F0;
+	       <<"/encryption.js">> -> F0;
+	       <<"/keys.js">> -> F0;
+	       <<"/signing.js">> -> F0;
+	       <<"/sha256.js">> -> F0;
                X -> 
                 io:fwrite("ext file handler block access to: "),
                 io:fwrite(X),

@@ -2,19 +2,31 @@
   <head>
   </head>
   <body>
-
-    <div style="overflow: auto; width:600px; height:500px;" id="display" name="display"></div>
-    <input type="text" id="to" name="to">
+    <div id="pubkey" name="pubkey"></div>
+    <div style="overflow-wrap: break-word; overflow-y: auto; width:600px; height:500px;" id="display" name="display"></div>
+    To: <input type="text" id="to" name="to">
     <br />
-    <textarea style="overflow: auto; width:600px; height:200px;" id="edit" id="edit"></textarea>
+    <textarea style="overflow-y: scroll; overflow-x: hidden; width:600px; height:200px;" id="edit" id="edit"></textarea>
     <br />
     <br />
     <button type="button" id="send_button">Send</button>
+    <button type="button" id="encrypted_send_button">Encrypted Send</button>
 
 
   </body>
     <script type="text/javascript" src="server.js" ></script>
     <script type="text/javascript" src="format.js" ></script>
     <script type="text/javascript" src="rpc.js" ></script>
+
+  <script type="text/javascript" src="sjcl.js" ></script>
+  <script type="text/javascript" src="sha256.js" ></script>
+  <script type="text/javascript" src="elliptic.min.js" ></script>
+  <script type="text/javascript" src="files.js" ></script>
+  <script type="text/javascript" src="codecBytes.js" ></script>
+  <script type="text/javascript" src="crypto.js" ></script>
+  <script type="text/javascript" src="encryption_library.js" ></script>
+  <script type="text/javascript" src="encryption.js" ></script>
+  <script type="text/javascript" src="keys.js" ></script>
+  <script type="text/javascript" src="signing.js" ></script>
     <script type="text/javascript" src="messaging.js" ></script>
 </html>

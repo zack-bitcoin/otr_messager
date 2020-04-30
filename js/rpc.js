@@ -28,7 +28,7 @@ function refresh_helper(x, cmd, innercallback, callback, n) {
         //this means that the server got our message, and it is still processing a response for us. So lets wait a bit, and then check if it is ready.
         setTimeout(function() {
                        return refresh_helper(x, cmd, innercallback,
-                                             callback, n - 1);
+                                             callback, n);
                    }, 150);
     }
     else if (xml_check(x)) {

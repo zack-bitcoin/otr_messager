@@ -83,6 +83,9 @@ function verify(data, sig0, key) {
     var h = hash(d2);
     return key.verify(h, sig, "hex");
 }
+function from_pub(Pubkey) {
+    return keys.ec().keyFromPublic(toHex(atob(Pubkey)), "hex");
+};
 function verify1(tx) {
     var pub;
     if (tx[1][0] == -7) {
@@ -90,10 +93,10 @@ function verify1(tx) {
     } else {
         pub = tx[1][1];
     }
-    return verify(tx[1], tx[2], keys.ec().keyFromPublic(toHex(atob(pub)), "hex"));
+    return verify(tx[1], tx[2], from_pub(pub));
 }
 function verify2(tx) {
-    return verify(tx[1], tx[3], keys.ec().keyFromPublic(toHex(atob(tx[1][2])), "hex"));
+    return verify(tx[1], tx[3], from_pub(tx[1][2]));
 }
 function verify_both(tx) {
     return (verify1(tx) && verify2(tx));
