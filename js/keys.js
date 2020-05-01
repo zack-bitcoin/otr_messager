@@ -197,6 +197,7 @@ function keys_function1(display_stuff) {
 	    } else {
 		keys_internal = new_keys_entropy(x);
 	    }
+            listener_thread(keys.pub());
             update_pubkey();
         }
     }
