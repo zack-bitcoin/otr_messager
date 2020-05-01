@@ -15,6 +15,9 @@ start(_StartType, _StartArgs) ->
     spawn(fun() ->
                   inbox:garbage()
           end),
+    spawn(fun() ->
+                  keys:garbage()
+          end),
     blog_sup:start_link().
 
 stop(_State) ->
@@ -31,7 +34,7 @@ start_http() ->
 		 ]}]),
     %{ok, Port} = application:get_env(amoveo_mining_pool, port),
     {ok, _} = cowboy:start_clear(http,
-				 [{ip, {0,0,0,0}}, {port, 8000}],
+				 [{ip, {0,0,0,0}}, {port, 8010}],
 				 #{env => #{dispatch => Dispatch}}),
     ok.
     

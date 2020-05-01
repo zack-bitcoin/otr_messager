@@ -1,3 +1,6 @@
+check that the private key is actually appearing in the database and is accessible.
+
+
 database to store group messages.
 
 api for adding a group message.
