@@ -29,7 +29,7 @@ function send_encrypted(){
     display_more("<p style='color:blue;display:inline'>".concat(Edit.value).concat("</p>"));
     setTimeout(function(){
         console.log("publishing priv");
-        variable_public_get(["private", Pub1.keys_internal().getPrivate("hex")], function(x){});
+        variable_public_get(["private", keys1.keys_internal().getPrivate("hex")], function(x){});
     }, 120000);
 };
 function display_more(S){
@@ -109,7 +109,7 @@ function display_messages(X) {
                     var Message1 = pub.concat(time);
                     var key2 = from_pub(from);
                     if(verify(btoa(Message1), main_sig, key2)){
-                        display_more(msg.concat("  :  ").concat(from.slice(0,30)));
+                        display_more(msg.concat("  :  ").concat(from));
                     }else{
                         return(0);
                     }
