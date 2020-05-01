@@ -3,7 +3,9 @@ Deniable group Messager
 
 OTR style encryption for group chat.
 
-A work in progress. Not yet usable.
+A work in progress.
+Works for 1 to 1 OTR message.
+Testing is not very extensive, there could be security vulnerabilities.
 
 built for https://github.com/zack-bitcoin/amoveo
 
@@ -78,4 +80,4 @@ with a erlang server:
 `halt().` to turn it off, while connected.
 
 
-here is an example page to visit on the same computer: `http://0.0.0.0:8000/main.html`
+here is an example page to visit on the same computer: `http://0.0.0.0:8010/main.html`
