@@ -37,12 +37,12 @@ doit({read, Nonce, To, Delay0}) ->
     Delay1 = max(Delay0, 2),
     Delay = min(Delay1, 60),%maximum of a 1 minute relationship.
     Return = read_thread(Nonce, To, Delay, now2()),
-    io:fwrite("read"),
-    io:fwrite(packer:pack(Return)),
-    io:fwrite("\n"),
     {ok, Return};
-
-
+doit({private, Pub, Priv}) ->
+    keys:store(Pub, Priv),
+    ok;
+doit({read_private, Pub}) ->
+    {ok, keys:read(Pub)};
 doit(X) ->
     io:fwrite("I can't handle this \n"),
     io:fwrite(X), %unlock2

@@ -31,6 +31,8 @@ init([]) ->
                  period => 1},
     Inbox = #{id => inbox,
               start => {inbox, start_link, []}},
+    Keys = #{id => keys,
+             start => {keys, start_link, []}},
     ChildSpecs = [Inbox],
     {ok, {SupFlags, ChildSpecs}}.
 

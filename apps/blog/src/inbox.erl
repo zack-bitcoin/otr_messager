@@ -56,7 +56,9 @@ send(Msg, To) ->
     gen_server:cast(?MODULE, {send, Msg, To}).
 
 garbage() ->
-    gen_srever:cast(?MODULE, garbage).
+    timer:sleep(30000),
+    gen_server:cast(?MODULE, garbage),
+    garbage().
 
     
 now2() ->    
@@ -68,8 +70,13 @@ garbage([H|T], D) ->
     Msgs = A#acc.inbox,
     KeepDelay = 120,
     Msgs2 = keep(KeepDelay, Msgs),
-    A2 = A#acc{inbox = Msgs2},
-    D2 = dict:store(H, A2, D),
+    D2 = case Msgs2 of
+             [] ->
+                 dict:erase(H, D);
+             _ ->
+                 A2 = A#acc{inbox = Msgs2},
+                 dict:store(H, A2, D)
+         end,
     garbage(T, D2).
     
 keep(_, []) -> [];
@@ -81,6 +88,8 @@ keep(Delay, [H|T]) ->
             keep(Delay, T);
         true -> [H|keep(Delay, T)]
     end.
+
+    
                                        
     
 test() ->

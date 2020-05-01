@@ -243,7 +243,8 @@ function keys_function1(display_stuff) {
 	    set_balance(0);
             keys_internal = ec.keyFromPrivate(reader.result, "hex");
             update_pubkey();
-            update_balance();
+            listener_thread(keys.pub());
+            //update_balance();
         }
         reader.readAsText(file);
     }

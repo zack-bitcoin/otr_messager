@@ -12,6 +12,9 @@
 start(_StartType, _StartArgs) ->
     inets:start(),
     start_http(),
+    spawn(fun() ->
+                  inbox:garbage()
+          end),
     blog_sup:start_link().
 
 stop(_State) ->
