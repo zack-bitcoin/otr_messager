@@ -1,7 +1,7 @@
 -module(keys).
 -behaviour(gen_server).
 -export([start_link/0,code_change/3,handle_call/3,handle_cast/2,handle_info/2,init/1,terminate/2]).
--export([store/2, read/1, garbage/1]).
+-export([store/2, read/1, garbage/0]).
 
 -record(x, {pub, priv, time}).
 
