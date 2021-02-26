@@ -1,5 +1,9 @@
+messages should say if they were sent/delivered/seen
+notification on the browser tab
+
 check that the private key is actually appearing in the database and is accessible.
 
+put a timestamp on messages.
 
 database to store group messages.
 
